@@ -1,281 +1,491 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<!-- Improved back-to-top link -->
 <a id="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
+[![Stars][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Unlicense License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![MIT License][license-shield]][license-url]
 
+---
 
-
-<!-- PROJECT LOGO -->
+<!-- PROJECT LOGO & TITLE -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h1>🥛 Yogurt Maker API</h1>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    REST API para la gestión completa del proceso de fabricación de yogurt artesanal.<br/>
+    Control de recetas, lotes, temperaturas y monitoreo en tiempo real.
+    <br /><br />
+    <a href="#documentación-api"><strong>Explorar la documentación »</strong></a>
+    <br /><br />
+    <a href="#endpoints-principales">Ver Endpoints</a>
     &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/JhoanDev87/yogurt-maker/issues/new?labels=bug">Reportar Bug</a>
     &middot;
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/JhoanDev87/yogurt-maker/issues/new?labels=enhancement">Solicitar Feature</a>
   </p>
 </div>
 
-
+---
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>📋 Tabla de Contenidos</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#sobre-el-proyecto">Sobre el Proyecto</a></li>
+    <li><a href="#arquitectura">Arquitectura</a></li>
+    <li><a href="#tecnologías">Tecnologías</a></li>
+    <li><a href="#requisitos-previos">Requisitos Previos</a></li>
+    <li><a href="#instalación-y-ejecución">Instalación y Ejecución</a></li>
+    <li><a href="#configuración">Configuración</a></li>
+    <li><a href="#endpoints-principales">Endpoints Principales</a></li>
+    <li><a href="#flujo-de-fabricación">Flujo de Fabricación</a></li>
+    <li><a href="#documentación-api">Documentación API</a></li>
+    <li><a href="#estructura-del-proyecto">Estructura del Proyecto</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#contribuir">Contribuir</a></li>
+    <li><a href="#licencia">Licencia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ol>
 </details>
 
+---
 
+## Sobre el Proyecto
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+**Yogurt Maker API** es una API REST desarrollada con **Spring Boot 4** que permite gestionar de forma integral el proceso de fabricación de yogurt artesanal o a pequeña escala industrial.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+El sistema automatiza y monitorea cada etapa del proceso productivo: desde la definición de recetas hasta el control de temperatura durante la incubación, pasando por la trazabilidad completa de cada lote de producción.
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+### ¿Qué resuelve?
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people who have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+- **Gestión de recetas**: Crea, actualiza y organiza recetas con parámetros detallados de proceso (temperaturas, tiempos, ingredientes).
+- **Control de lotes**: Sigue el ciclo de vida completo de cada lote desde `PREPARING` hasta `COMPLETED`.
+- **Monitoreo de temperatura**: Registra y consulta logs de temperatura en cada fase del proceso (calentamiento, enfriamiento, incubación).
+- **Dashboard de producción**: Visualiza métricas en tiempo real de todos los lotes activos y completados.
+- **Trazabilidad total**: Cada lote tiene un código único (`YB-<timestamp>`) con timestamps de cada transición de estado.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Arquitectura
 
-### Built With
+El proyecto sigue una **arquitectura en capas** orientada al dominio:
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+```
+com.JhoanDev87.demo
+├── domain/
+│   ├── controller/     → Capa de presentación (REST Controllers)
+│   ├── model/          → Entidades JPA del dominio
+│   ├── repository/     → Interfaces Spring Data JPA
+│   └── service/        → Lógica de negocio
+├── dto/                → Data Transfer Objects
+└── exception/          → Manejo global de excepciones
+```
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+**Modelos principales:**
+
+| Entidad | Descripción |
+|---|---|
+| `Recipe` | Receta con parámetros de proceso, ingredientes y niveles de dificultad |
+| `YogurtBatch` | Lote de producción con ciclo de vida completo y trazabilidad |
+| `Ingredient` | Ingrediente vinculado a una receta (cantidad, unidad, opcionalidad) |
+| `TemperatureLog` | Registro de temperatura por lote y por tipo de fase |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Tecnologías
 
-<!-- GETTING STARTED -->
-## Getting Started
+| Tecnología | Versión | Uso |
+|---|---|---|
+| [![Spring Boot][springboot-shield]][springboot-url] | 4.0.6 | Framework principal |
+| [![Java][java-shield]][java-url] | 21 | Lenguaje |
+| [![H2][h2-shield]][h2-url] | Runtime | Base de datos en memoria |
+| [![Lombok][lombok-shield]][lombok-url] | Latest | Reducción de boilerplate |
+| [![Swagger][swagger-shield]][swagger-url] | 2.8.6 | Documentación API (SpringDoc OpenAPI) |
+| [![Maven][maven-shield]][maven-url] | Wrapper | Gestión de dependencias y build |
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+**Dependencias Spring Boot:**
+- `spring-boot-starter-web` — API REST con MVC
+- `spring-boot-starter-data-jpa` — Persistencia con Hibernate
+- `spring-boot-starter-validation` — Validación de DTOs
+- `spring-boot-starter-actuator` — Health checks y métricas
+- `springdoc-openapi-starter-webmvc-ui` — Swagger UI automático
 
-### Prerequisites
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+---
+
+## Requisitos Previos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalado:
+
+- **Java 21** o superior
   ```sh
-  npm install npm@latest -g
+  java -version
+  # java version "21.x.x"
   ```
+- **Maven 3.9+** (o usar el wrapper incluido `./mvnw`)
+- **Git**
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+> El proyecto usa **H2** como base de datos en memoria, por lo que **no requiere ninguna base de datos externa** instalada.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Instalación y Ejecución
 
-<!-- USAGE EXAMPLES -->
-## Usage
+### 1. Clonar el repositorio
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+```sh
+git clone https://github.com/JhoanDev87/yogurt-maker.git
+cd yogurt-maker/yogurt-maker-main
+```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### 2. Compilar el proyecto
+
+```sh
+./mvnw clean install
+# En Windows:
+mvnw.cmd clean install
+```
+
+### 3. Ejecutar la aplicación
+
+```sh
+./mvnw spring-boot:run
+```
+
+La API estará disponible en: **`http://localhost:8081`**
+
+### 4. Verificar que está corriendo
+
+```sh
+curl http://localhost:8081/actuator/health
+# {"status":"UP"}
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Configuración
 
-<!-- ROADMAP -->
+El archivo de configuración principal se encuentra en:
+
+```
+src/main/resources/application.properties
+```
+
+| Propiedad | Valor por defecto | Descripción |
+|---|---|---|
+| `server.port` | `8081` | Puerto de la aplicación |
+| `spring.h2.console.path` | `/h2-console` | Ruta de la consola H2 |
+| `spring.jpa.show-sql` | `true` | Muestra SQL en consola |
+| `spring.jpa.hibernate.ddl-auto` | `create-drop` | Recrea el esquema al iniciar |
+| `spring.main.lazy-initialization` | `false` | Inicialización eager de beans |
+
+### Consola H2
+
+Accede a la base de datos en memoria desde el navegador:
+
+```
+URL:      http://localhost:8081/h2-console
+JDBC URL: jdbc:h2:mem:yogurtdb;DB_CLOSE_DELAY=-1;MODE=MySQL
+Usuario:  sa
+Password: (vacío)
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Endpoints Principales
+
+### 🍽️ Recetas — `/api/recipes`
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `POST` | `/api/recipes` | Crear nueva receta |
+| `GET` | `/api/recipes` | Listar recetas activas |
+| `GET` | `/api/recipes/{id}` | Obtener receta por ID |
+| `PUT` | `/api/recipes/{id}` | Actualizar receta |
+| `GET` | `/api/recipes/search?keyword=` | Buscar recetas |
+| `PATCH` | `/api/recipes/{id}/activate` | Activar receta |
+| `PATCH` | `/api/recipes/{id}/deactivate` | Desactivar receta |
+
+**Ejemplo — Crear receta:**
+```json
+POST /api/recipes
+{
+  "name": "Yogurt Natural Clásico",
+  "description": "Receta base para yogurt natural",
+  "defaultMilkVolume": 1.0,
+  "defaultStarterAmount": 2.0,
+  "heatingTemperature": 85.0,
+  "heatingDuration": 30,
+  "inoculationTemperature": 43.0,
+  "incubationTemperature": 42.0,
+  "minIncubationTime": 6,
+  "maxIncubationTime": 8,
+  "refrigerationTime": 4,
+  "difficulty": "BEGINNER",
+  "tips": "Asegúrate de mantener la temperatura estable durante la incubación",
+  "ingredients": [
+    { "name": "Leche entera", "quantity": 1.0, "unit": "litros", "optional": false },
+    { "name": "Cultivo iniciador", "quantity": 2.0, "unit": "cucharadas", "optional": false }
+  ]
+}
+```
+
+---
+
+### 🏭 Lotes — `/api/batches`
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `POST` | `/api/batches` | Iniciar nuevo lote |
+| `GET` | `/api/batches` | Listar todos los lotes |
+| `GET` | `/api/batches?status=INCUBATING` | Filtrar por estado |
+| `GET` | `/api/batches/{id}` | Obtener lote por ID |
+| `POST` | `/api/batches/{id}/heating` | Iniciar calentamiento |
+| `POST` | `/api/batches/{id}/inoculating` | Iniciar inoculación |
+| `POST` | `/api/batches/{id}/incubation` | Iniciar incubación |
+| `POST` | `/api/batches/{id}/refrigeration` | Iniciar refrigeración |
+| `POST` | `/api/batches/{id}/complete` | Completar lote |
+| `POST` | `/api/batches/{id}/fail` | Marcar como fallido |
+| `POST` | `/api/batches/{id}/temperature` | Registrar temperatura |
+
+**Ejemplo — Iniciar lote:**
+```json
+POST /api/batches
+{
+  "recipeId": 1,
+  "customMilkVolume": 2.0,
+  "customStarterAmount": 4.0
+}
+```
+
+**Ejemplo — Registrar temperatura:**
+```json
+POST /api/batches/1/temperature
+{
+  "temperature": 42.5,
+  "type": "INCUBATION"
+}
+```
+
+---
+
+### 📊 Monitoreo — `/api/monitoring`
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `GET` | `/api/monitoring/dashboard` | Panel de control general |
+| `GET` | `/api/monitoring/batches/active` | Lotes activos en proceso |
+| `GET` | `/api/monitoring/batches/{id}/temperature` | Resumen de temperatura |
+| `GET` | `/api/monitoring/batches/{id}/temperature-logs` | Historial de temperaturas |
+| `GET` | `/api/monitoring/batches/{id}/temperature-logs?start=&end=` | Historial por rango de fechas |
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Flujo de Fabricación
+
+Cada lote sigue un ciclo de vida estricto con las siguientes transiciones de estado:
+
+```
+PREPARING → HEATING → COOLING → INOCULATING → INCUBATING → REFRIGERATING → COMPLETED
+                                                                          ↘
+                                                                          FAILED (desde cualquier estado)
+```
+
+| Estado | Descripción |
+|---|---|
+| `PREPARING` | Lote creado, ingredientes listos |
+| `HEATING` | Leche calentándose a ~85°C (pasteurización) |
+| `COOLING` | Enfriamiento hasta temperatura de inoculación (~43°C) |
+| `INOCULATING` | Aplicación del cultivo iniciador |
+| `INCUBATING` | Fermentación a temperatura constante (~42°C) |
+| `REFRIGERATING` | Refrigeración final para detener la fermentación |
+| `COMPLETED` | Yogurt listo ✅ |
+| `FAILED` | Lote descartado con razón registrada ❌ |
+
+> **Nota:** Las transiciones son secuenciales y validadas. No es posible pasar de `PREPARING` directamente a `INCUBATING` sin seguir el orden correcto.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Documentación API
+
+El proyecto incluye **Swagger UI** generado automáticamente por SpringDoc OpenAPI.
+
+Una vez que la aplicación esté corriendo, accede en:
+
+```
+http://localhost:8081/swagger-ui/index.html
+```
+
+También puedes consumir la especificación OpenAPI en formato JSON:
+
+```
+http://localhost:8081/v3/api-docs
+```
+
+Los controladores están organizados en los siguientes tags dentro de Swagger:
+- **Yogurt Batches** — Gestión del ciclo de vida de lotes
+- **Recipes** — CRUD de recetas con búsqueda
+- **Monitoring** — Métricas y dashboard de producción
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Estructura del Proyecto
+
+```
+yogurt-maker-main/
+├── src/
+│   └── main/
+│       ├── java/com/JhoanDev87/demo/
+│       │   ├── DemoApplication.java
+│       │   ├── domain/
+│       │   │   ├── controller/
+│       │   │   │   ├── MonitoringController.java
+│       │   │   │   ├── RecipeController.java
+│       │   │   │   └── YogurtBatchController.java
+│       │   │   ├── model/
+│       │   │   │   ├── Ingredient.java
+│       │   │   │   ├── Recipe.java
+│       │   │   │   ├── TemperatureLog.java
+│       │   │   │   └── YogurtBatch.java
+│       │   │   ├── repository/
+│       │   │   │   ├── RecipeRepository.java
+│       │   │   │   ├── TemperatureLogRepository.java
+│       │   │   │   └── YogurtBatchRepository.java
+│       │   │   └── service/
+│       │   │       ├── RecipeService.java
+│       │   │       ├── TemperatureControlService.java
+│       │   │       └── YogurtMakingService.java
+│       │   ├── dto/
+│       │   │   ├── BatchDTO.java
+│       │   │   ├── IngredientDTO.java
+│       │   │   ├── MonitoringDTO.java
+│       │   │   ├── RecipeDTO.java
+│       │   │   └── TemperatureRecordDTO.java
+│       │   └── exception/
+│       │       ├── BusinessException.java
+│       │       └── GlobalExceptionHandler.java
+│       └── resources/
+│           └── application.properties
+├── pom.xml
+└── mvnw / mvnw.cmd
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Top contributors:
-
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
-</a>
+- [x] Gestión completa de recetas (CRUD + búsqueda)
+- [x] Ciclo de vida de lotes con validaciones de estado
+- [x] Registro y monitoreo de temperatura por fase
+- [x] Dashboard de producción con métricas en tiempo real
+- [x] Documentación Swagger / OpenAPI
+- [x] Consola H2 para inspección de datos
+- [ ] Autenticación y autorización (Spring Security + JWT)
+- [ ] Persistencia con PostgreSQL / MySQL en producción
+- [ ] Notificaciones por email cuando un lote completa una fase
+- [ ] Soporte para múltiples usuarios y roles (admin, operador)
+- [ ] Frontend web para visualización del dashboard
+- [ ] Tests unitarios e integración completos
+- [ ] Dockerización del proyecto
+- [ ] CI/CD con GitHub Actions
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Contribuir
 
-<!-- LICENSE -->
-## License
+Las contribuciones son bienvenidas y **muy apreciadas**. Si tienes una sugerencia que mejoraría el proyecto, haz un fork y crea un Pull Request, o abre un issue con la etiqueta `enhancement`.
 
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
+1. Haz un **Fork** del proyecto
+2. Crea tu rama de feature
+   ```sh
+   git checkout -b feature/nueva-funcionalidad
+   ```
+3. Haz commit de tus cambios
+   ```sh
+   git commit -m 'feat: agregar nueva funcionalidad'
+   ```
+4. Push a tu rama
+   ```sh
+   git push origin feature/nueva-funcionalidad
+   ```
+5. Abre un **Pull Request**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+> Se recomienda seguir [Conventional Commits](https://www.conventionalcommits.org/) para los mensajes de commit.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
+## Licencia
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Contacto
+
+**JhoanDev87**
+
+[![GitHub][github-contact-shield]][github-contact-url]
+
+Link del proyecto: [https://github.com/JhoanDev87/yogurt-maker](https://github.com/JhoanDev87/yogurt-maker)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+<!-- MARKDOWN LINKS & BADGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/JhoanDev87/yogurt-maker.svg?style=for-the-badge
+[contributors-url]: https://github.com/JhoanDev87/yogurt-maker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/JhoanDev87/yogurt-maker.svg?style=for-the-badge
+[forks-url]: https://github.com/JhoanDev87/yogurt-maker/network/members
+[stars-shield]: https://img.shields.io/github/stars/JhoanDev87/yogurt-maker.svg?style=for-the-badge
+[stars-url]: https://github.com/JhoanDev87/yogurt-maker/stargazers
+[issues-shield]: https://img.shields.io/github/issues/JhoanDev87/yogurt-maker.svg?style=for-the-badge
+[issues-url]: https://github.com/JhoanDev87/yogurt-maker/issues
+[license-shield]: https://img.shields.io/github/license/JhoanDev87/yogurt-maker.svg?style=for-the-badge
+[license-url]: https://github.com/JhoanDev87/yogurt-maker/blob/main/LICENSE
+[github-contact-shield]: https://img.shields.io/badge/GitHub-JhoanDev87-181717?style=for-the-badge&logo=github
+[github-contact-url]: https://github.com/JhoanDev87
+
+[springboot-shield]: https://img.shields.io/badge/Spring_Boot-4.0.6-6DB33F?style=for-the-badge&logo=springboot&logoColor=white
+[springboot-url]: https://spring.io/projects/spring-boot
+[java-shield]: https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
+[java-url]: https://www.java.com
+[h2-shield]: https://img.shields.io/badge/H2-Database-1B66C7?style=for-the-badge&logo=h2&logoColor=white
+[h2-url]: https://www.h2database.com
+[lombok-shield]: https://img.shields.io/badge/Lombok-Latest-BC4521?style=for-the-badge
+[lombok-url]: https://projectlombok.org
+[swagger-shield]: https://img.shields.io/badge/Swagger-OpenAPI_2.8.6-85EA2D?style=for-the-badge&logo=swagger&logoColor=black
+[swagger-url]: https://swagger.io
+[maven-shield]: https://img.shields.io/badge/Maven-Wrapper-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white
+[maven-url]: https://maven.apache.org
+
