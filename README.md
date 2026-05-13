@@ -472,7 +472,7 @@ Link del proyecto: [https://github.com/JhoanDev87/yogurt-maker](https://github.c
 [issues-shield]: https://img.shields.io/github/issues/JhoanDev87/yogurt-maker.svg?style=for-the-badge
 [issues-url]: https://github.com/JhoanDev87/yogurt-maker/issues
 [license-shield]: https://img.shields.io/github/license/JhoanDev87/yogurt-maker.svg?style=for-the-badge
-[license-url]: https://github.com/TU_USUARIO/TU_REPO/blob/main/LICENSE
+[license-url]: https://github.com/JhoanDev87/yogurt-maker/blob/main/LICENSE
 [github-contact-shield]: https://img.shields.io/badge/GitHub-JhoanDev87-181717?style=for-the-badge&logo=github
 [github-contact-url]: https://github.com/JhoanDev87
 
