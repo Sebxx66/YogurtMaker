@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:yogurtdb-test;DB_CLOSE_DELAY=-1
+  h2:
+    console:
+      enabled: false
+
+yogurt:
+  demo-data: false
+  simulation:
+    enabled: false

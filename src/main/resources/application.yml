@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: yogurt-maker
+  datasource:
+    url: jdbc:h2:mem:yogurtdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+yogurt:
+  demo-data: true
+  simulation:
+    enabled: true
+    tick: 2s
+    incubation-reading-interval: 5m
+
+logging:
+  level:
+    com.sebxx66.yogurtmaker: INFO
+---
+# Perfil para desarrollo: muestra las consultas SQL
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+logging:
+  level:
+    com.sebxx66.yogurtmaker: DEBUG
